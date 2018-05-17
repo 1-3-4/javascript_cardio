@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Opgave besvarelse</title>
+    </head>
+    <body>
+        <h1>Challenge Answers</h1>
+        <h2>Challange 1 - Reverse a string</h2>
+        <script type="text/javascript">
+            var string = "tratS s'teL";
+            var newStr = "";
+            function reverseString(str) {
+                let characterArr;
+                // Show original string:
+                document.write("<p>Original string: " + str + "</p>");
+                // Remake string into an array where each character is an object:
+                // When the split method is passed an empty string, the string is split between each character.
+                characterArr = str.split("");
+                // Create a new string by building it from the last object of the array:
+                for (let i = characterArr.length; i > 0; i--) {
+                    // Add last object of array to new string:
+                    newStr = newStr + characterArr[characterArr.length - 1];
+                    // Remove last object from array:
+                    characterArr.pop();
+                }
+                document.write("<p> Reversed string: " + newStr + "</p>");
+            };
+            reverseString(string);
+        </script>
+        <h2>Challange 2 - Validate a palindrome</h2>
+        <script type="text/javascript">
+            var palindrome = "hannah";
+            var notPalindrome = "Hannah";
+            var res;
+            function checkPalindrome(str) {
+                // Print string in document:
+                document.write("<p>Is \"" + str + "\" a palindrome?");
+                // Check if string is a palindrome:
+                res = isPalindrome(str);
+                // Print the result (in human speak):
+                if (res == true) {
+                    document.write(" Yes.</p>");
+                }
+                else {
+                    document.write(" No.</p>")
+                }
+            }
+            function isPalindrome(str) {
+                // console.log("Is \"" + str + "\" a palindrome? Comparing letter pairs:");
+                for (var i = 0; i < str.length; i++) {
+                    var beg = 0 + i;
+                    var end = str.length - 1 - i;
+                    // // Log letters to be compared in console:
+                    // console.log("Pair " + (i + 1) + ", first letter: " + str[beg]);
+                    // console.log("Pair " + (i + 1) + ", second letter: " + str[end]);
+                    // Check if word has been processed more than halfway:
+                    if (beg >= end) {
+                        return true;
+                    }
+                    // Check if letters are identical:
+                    else if (str[beg] == str[end]) {
+                        // Continue with the for loop.
+                    }
+                    // If letters are not identical:
+                    else {
+                        return false;
+                    }
+                }
+
+            }
+            checkPalindrome(palindrome);
+            checkPalindrome(notPalindrome);
+        </script>
+        <h2>Challenge 3 - Reverse Integer</h2>
+        <script type="text/javascript">
+            let integer = 521;
+            let newInt;
+            function reverseInt(int) {
+                let intAsStr = "";
+                let intAsStrRev = "";
+                let intAsArr = [];
+                let intAsArrRev = [];
+                let intRev = 0;
+                // Print original integer:
+                document.write("<p>The original integer was: " + int + "</p>");
+                // Reverse integer:
+
+                // Turn integer into string:
+                intAsStr = int.toString();
+                console.log(intAsStr);
+                // Turn new string into array:
+                intAsArr = intAsStr.split("");
+                console.log(intAsArr);
+                // Reverse array:
+                intAsArrRev = intAsArr.reverse();
+                console.log(intAsArrRev);
+                // Turn array objects into one string:
+                for (var i = 0; i < intAsArrRev.length; i++) {
+                    intAsStrRev = intAsStrRev + intAsArrRev[i];
+                }
+                console.log(intAsStrRev);
+                // Turn string into integer:
+                intRev = parseInt(intAsStrRev);
+                console.log(intRev);
+                // Print reversed integer:
+                document.write("<p>The reversed integer is: " + intRev + "</p>");
+            }
+            reverseInt(integer);
+        </script>
+        <h2>Challenge 4 - Capitalize letters</h2>
+        <script type="text/javascript">
+            var string = "capitalize this sentence";
+            let stringCapitalized = "";
+            // Print non-capitalized words:
+            document.write("<p>The original sentence looked like this: " + string + "</p>")
+            // Capitalize letters:
+            function capitalizeLetters(str) {
+                let sentenceArr;
+                // Make array from string. Each object is a word:
+                sentenceArr = str.split(" ");
+                console.log(sentenceArr);
+                // Capitalize the first character of the first object:
+                let word = sentenceArr[0];
+                console.log(word);
+                let capital = word[0].toUpperCase();
+                console.log(capital);
+                console.log(word);
+                // Select word in sentence:
+                for (var i = 0; i < sentenceArr.length; i++) {
+                    // Select first letter of word:
+                    let word = sentenceArr[i];
+                    // Capitalize letter:
+                    let letter = word[0];
+                    let capLetter = letter.toUpperCase();
+                    // Replace first letter in word:
+                    let capWord = capLetter + word.slice(1);
+                    console.log(capWord);
+                    // Replace word in sentence:
+                }
+            }
+            capitalizeLetters(string);
+            // Print capitalized words:
+            document.write("<p>After being capitalized, the sentence looks like this: " + stringCapitalized + "</p>");
+        </script>
+    </body>
+</html>
